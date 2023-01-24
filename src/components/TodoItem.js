@@ -22,26 +22,32 @@ class TodoItem extends React.Component {
       textDecoration: 'line-through',
     };
 
+    const handleEditing = () => {
+      console.log('edit mode activated');
+    };
+
     return (
       <li className={styles.item}>
-        <input
-          type="checkbox"
-          className={styles.checkbox}
-          checked={completed}
-          onChange={() => {
-            const { handleChangeProps } = this.props;
-            handleChangeProps(id);
-          }}
-        />
-        <button
-          type="button"
-          onClick={() => deleteTodoProps(id)}
-        >
-          Delete
-        </button>
-        <span style={completed ? completedStyle : null}>
-          {title}
-        </span>
+        <div onDoubleClick={handleEditing}>
+          <input
+            type="checkbox"
+            className={styles.checkbox}
+            checked={completed}
+            onChange={() => {
+              const { handleChangeProps } = this.props;
+              handleChangeProps(id);
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => deleteTodoProps(id)}
+          >
+            Delete
+          </button>
+          <span style={completed ? completedStyle : null}>
+            {title}
+          </span>
+        </div>
       </li>
     );
   }
