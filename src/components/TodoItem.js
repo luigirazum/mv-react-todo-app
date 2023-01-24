@@ -21,7 +21,7 @@ class TodoItem extends React.Component {
   render() {
     const { todo } = this.props;
     const { completed, id, title } = todo;
-    const { deleteTodoProps } = this.props;
+    const { deleteTodoProps, setUpdate } = this.props;
 
     const completedStyle = {
       fontStyle: 'italic',
@@ -68,7 +68,7 @@ class TodoItem extends React.Component {
           className={styles.textInput}
           value={title}
           onChange={(e) => {
-            console.log(e.target.value, id);
+            setUpdate(e.target.value, id);
           }}
         />
       </li>
@@ -80,6 +80,7 @@ TodoItem.propTypes = {
   todo: PropTypes.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
   handleChangeProps: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

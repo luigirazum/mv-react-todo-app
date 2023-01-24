@@ -67,6 +67,22 @@ class TodoContainer extends React.Component {
     });
   };
 
+  setUpdate = (updatedTitle, id) => {
+    const { todos } = this.state;
+
+    this.setState({
+      todos: todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            title: updatedTitle,
+          };
+        }
+        return todo;
+      }),
+    });
+  }
+
   render() {
     const { todos } = this.state;
 
@@ -79,6 +95,7 @@ class TodoContainer extends React.Component {
             todos={todos}
             handleChangeProps={this.handleChange}
             deleteTodoProps={this.delTodo}
+            setUpdate={this.setUpdate}
           />
         </div>
       </div>

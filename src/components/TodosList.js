@@ -13,6 +13,7 @@ class TodosList extends React.Component {
       todos,
       handleChangeProps,
       deleteTodoProps,
+      setUpdate,
     } = this.props;
 
     return (
@@ -23,6 +24,7 @@ class TodosList extends React.Component {
             todo={todo}
             handleChangeProps={handleChangeProps}
             deleteTodoProps={deleteTodoProps}
+            setUpdate={setUpdate}
           />
         ))}
       </ul>
@@ -34,6 +36,7 @@ TodosList.propTypes = {
   todos: PropTypes.isRequired,
   handleChangeProps: PropTypes.func.isRequired,
   deleteTodoProps: PropTypes.func.isRequired,
+  setUpdate: PropTypes.func.isRequired,
 };
 
 export default TodosList;
