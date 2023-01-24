@@ -52,7 +52,17 @@ class TodoContainer extends React.Component {
   };
 
   addTodoItem = (title) => {
-    console.log(title);
+    const { todos } = this.state;
+
+    const newTodo = {
+      id: 4,
+      title,
+      completed: false,
+    };
+
+    this.setState({
+      todos: [...todos, newTodo],
+    });
   };
 
   render() {
