@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // style module
 import styles from './TodoItem.module.css';
@@ -45,5 +46,11 @@ class TodoItem extends React.Component {
     );
   }
 }
+
+TodoItem.propTypes = {
+  todo: PropTypes.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
+};
 
 export default TodoItem;

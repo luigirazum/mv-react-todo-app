@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class InputTodo extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class InputTodo extends Component {
         title: '',
       });
     } else {
-      alert('Please write item');
+      this.alert('Please write item');
     }
   };
 
@@ -52,5 +53,9 @@ class InputTodo extends Component {
     );
   }
 }
+
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func.isRequired,
+};
 
 export default InputTodo;
