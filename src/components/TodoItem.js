@@ -7,8 +7,16 @@ import styles from './TodoItem.module.css';
 class TodoItem extends React.Component {
   constructor(props) {
     super(props);
-    this.props = props;
+    this.state = {
+      editing: false,
+    };
   }
+
+  handleEditing = () => {
+    this.setState({
+      editing: true,
+    });
+  };
 
   render() {
     const { todo } = this.props;
@@ -22,13 +30,19 @@ class TodoItem extends React.Component {
       textDecoration: 'line-through',
     };
 
-    const handleEditing = () => {
-      console.log('edit mode activated');
-    };
+    const viewMode = {};
+    const editMode = {};
+    const { editing } = this.state;
+
+    if (editing) {
+      viewMode.display = 'none';
+    } else {
+      editMode.display = 'none';
+    }
 
     return (
       <li className={styles.item}>
-        <div onDoubleClick={handleEditing}>
+        <div onDoubleClick={this.handleEditing} style={viewMode}>
           <input
             type="checkbox"
             className={styles.checkbox}
@@ -48,6 +62,11 @@ class TodoItem extends React.Component {
             {title}
           </span>
         </div>
+        <input
+          type="text"
+          style={editMode}
+          className={styles.textInput}
+        />
       </li>
     );
   }
