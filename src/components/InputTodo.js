@@ -20,6 +20,10 @@ class InputTodo extends Component {
     const { addTodoProps } = this.props;
 
     addTodoProps(title);
+
+    this.setState({
+      title: '',
+    });
   };
 
   render() {
