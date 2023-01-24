@@ -7,7 +7,7 @@ class TodoItem extends React.Component {
   }
 
   render() {
-    const { todo } = this.props;
+    const { todo, deleteTodoProps } = this.props;
     return (
       <li>
         <input
@@ -18,6 +18,9 @@ class TodoItem extends React.Component {
             handleChangeProps(todo.id);
           }}
         />
+        <button onClick={() => deleteTodoProps(todo.id)}>
+          Delete
+        </button>
         {todo.title}
       </li>
     );
