@@ -10,7 +10,8 @@ class TodoItem extends React.Component {
   }
 
   render() {
-    const { completed, id, title } = this.props.todo
+    const { todo } = this.props;
+    const { completed, id, title } = todo;
     const { deleteTodoProps } = this.props;
 
     const completedStyle = {
@@ -32,6 +33,7 @@ class TodoItem extends React.Component {
           }}
         />
         <button
+          type="button"
           onClick={() => deleteTodoProps(id)}
         >
           Delete
