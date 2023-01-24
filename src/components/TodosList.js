@@ -11,7 +11,7 @@ class TodosList extends React.Component {
     const {
       todos,
       handleChangeProps,
-      deleteTodoProps
+      deleteTodoProps,
     } = this.props;
 
     return (
