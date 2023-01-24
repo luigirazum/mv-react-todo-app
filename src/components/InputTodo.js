@@ -19,11 +19,14 @@ class InputTodo extends Component {
     const { title } = this.state;
     const { addTodoProps } = this.props;
 
-    addTodoProps(title);
-
-    this.setState({
-      title: '',
-    });
+    if (title.trim()) {
+      addTodoProps(title.trim());
+      this.setState({
+        title: '',
+      });
+    } else {
+      alert('Please write item');
+    }
   };
 
   render() {
