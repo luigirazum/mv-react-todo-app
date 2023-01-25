@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { NavLink } from 'react-router-dom';
+
 const Navbar = () => {
   const links = [
     {
@@ -17,8 +19,12 @@ const Navbar = () => {
     <nav className="navBar">
       <ul>
         {links.map((link) => {
-          const { id, text } = link;
-          return (<li key={id}>{text}</li>);
+          const { id, text, path } = link;
+          return (
+            <li key={id}>
+              <NavLink to={path}>{text}</NavLink>
+            </li>
+          );
         })}
       </ul>
     </nav>
