@@ -8,6 +8,7 @@ import './App.css';
 import Navbar from './functionBased/components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
+import SingleAboutPage from './pages/SingleAboutPage';
 import NotMatch from './pages/NotMatch';
 
 const App = () => (
@@ -15,8 +16,10 @@ const App = () => (
     <Navbar />
     <div className="container">
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />}>
+          <Route path=":id" element={<SingleAboutPage />} />
+        </Route>
         <Route path="*" element={<NotMatch />} />
       </Routes>
     </div>
