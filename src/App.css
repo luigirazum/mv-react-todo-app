@@ -64,7 +64,6 @@ body {
   border: none;
 }
 
-.active-link,
 .active {
   color: orangered;
   text-decoration: underline;
