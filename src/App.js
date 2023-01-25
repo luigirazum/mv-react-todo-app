@@ -13,11 +13,13 @@ import NotMatch from './pages/NotMatch';
 const App = () => (
   <>
     <Navbar />
-    <Routes>
-      <Route exact path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="*" element={<NotMatch />} />
-    </Routes>
+    <div className="container">
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotMatch />} />
+      </Routes>
+    </div>
   </>
 );
 
