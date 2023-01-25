@@ -65,17 +65,15 @@ const TodoContainer = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="inner">
-          <Header />
-          <InputTodo addTodoProps={addTodoItem} />
-          <TodosList
-            todos={todos}
-            handleChangeProps={handleChange}
-            deleteTodoProps={delTodo}
-            setUpdate={setUpdate}
-          />
-        </div>
+      <div className="inner">
+        <Header />
+        <InputTodo addTodoProps={addTodoItem} />
+        <TodosList
+          todos={todos}
+          handleChangeProps={handleChange}
+          deleteTodoProps={delTodo}
+          setUpdate={setUpdate}
+        />
       </div>
     </>
   );
