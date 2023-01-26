@@ -1,29 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+// Add the style sheet
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+// import pages
+import Navbar from './functionBased/components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import SingleAboutPage from './pages/SingleAboutPage';
+import NotMatch from './pages/NotMatch';
+
+const App = () => (
+  <>
+    <Navbar />
+    <div className="container">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />}>
+          <Route path=":id" element={<SingleAboutPage />} />
+        </Route>
+        <Route path="*" element={<NotMatch />} />
+      </Routes>
     </div>
-  );
-}
+  </>
+);
 
 export default App;
